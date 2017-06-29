@@ -4,7 +4,7 @@ const mockData = {
       label: "Keto Coffee",
       type: "drink",
       units: {
-        label: "fluid oz",
+        label: "fluid ounce",
         servingUnits: 16,
       },
       nutrition: {
@@ -46,7 +46,7 @@ const mockData = {
       label: "Tuna, Bumblebee Solid White Albacore",
       type: "food",
       units: {
-        label: "oz",
+        label: "ounce",
         servingUnits: 2,
       },
       nutrition: {
@@ -60,7 +60,7 @@ const mockData = {
       label: "Coffee, Dunkin Donuts, medium cream-only",
       type: "drink",
       units: {
-        label: "fluid oz",
+        label: "fluid ounce",
         servingUnits: 14,
       },
       nutrition: {
@@ -88,7 +88,7 @@ const mockData = {
       label: "Baby Spinach",
       type: "food",
       units: {
-        label: "oz",
+        label: "ounce",
         servingUnits: 3,
       },
       nutrition: {

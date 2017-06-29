@@ -15,7 +15,7 @@ class JournalSegmentSummary extends Component {
 
   calculateMacroSummary(entries, recipes) {
     return entries.map(
-      (entry, i) =>
+      (entry) =>
         this.calculateMacros(recipes[entry.recipeKey], entry.servings)
     ).reduce(
       (acc, n) => {
@@ -37,13 +37,16 @@ class JournalSegmentSummary extends Component {
 
     return (
       <div className="journal-segment">
-        <div className="journal-segment-header">{segmentDate.toDateString()}</div>
-        <div className="macro-summary">
-          <span>Fat: {macroSummary.fat}g</span>
-          <span>Protein: {macroSummary.protein}g</span>
-          <span>Net Carbs: {macroSummary.netCarbs}g</span>
-          <span>Fiber: {macroSummary.fiber}g</span>
-          <span>Kcal: {macroSummary.kcal}g</span>
+        <div className="header">
+          {segmentDate.toDateString()}
+        </div>
+        <div className="macro-summary z-depth-1 blue-grey white-text">
+          <span className="label">Macros</span>
+          <span className="macro">{macroSummary.fat.toFixed(1)}g Fat</span>
+          <span className="macro">{macroSummary.protein.toFixed(1)}g Protein</span>
+          <span className="macro">{macroSummary.netCarbs.toFixed(1)}g Net Carbs</span>
+          <span className="macro">{macroSummary.fiber.toFixed(1)}g Fiber</span>
+          <span className="macro">{Math.round(macroSummary.kcal)} Kcal</span>
         </div>
       </div>
     );

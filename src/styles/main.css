@@ -31,10 +31,31 @@ body {
 .journal-actions a {
   margin: 0 0.3rem 0 0;
 }
-.journal-segment-header {
+.journal-segment .header {
   font-size: 1.64rem;
   line-height: 110%;
-  margin: 1rem 0 1rem 0;
+  margin: 1.5rem 0 1rem 0;
+}
+.journal-segment .macro-summary {
+  display: -webkit-flex;
+  display: flex;
+  padding: 1rem 1.2rem 1rem 1.2rem;
+  justify-content: space-between;
+}
+@media only screen and (max-width: 767px) {
+  .journal-segment .macro-summary {
+    flex-wrap: wrap;
+    align-items: center;
+    font-size: 0.8rem;
+  }
+  .journal-segment .macro-summary .label, .journal-segment .macro-summary .macro {
+    width: 50%;
+    text-align: center;
+  }
+}
+.journal-segment .macro-summary .label {
+  font-weight: bold;
+  text-transform: uppercase;
 }
 .journal-entry {
   display: -webkit-flex;
@@ -52,11 +73,11 @@ body {
   align-self: center;
 }
 .journal-entry .middle {
-  width: 83%;
+  width: 78%;
   align-self: center;
 }
 .journal-entry .right-bookend {
-  width: 10%;
+  width: 15%;
   text-align: center;
   align-self: center;
   margin-right: 10px;

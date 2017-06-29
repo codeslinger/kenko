@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import JournalActions from './JournalActions';
 import JournalSegment from './JournalSegment';
 import PaginationFooter from './PaginationFooter';
 
@@ -26,6 +27,7 @@ class Journal extends Component {
     return (
       <div className="row">
         <div className="col s10 offset-s1 journal-area">
+          <JournalActions />
           {segments.map((segment, i) =>
                         <JournalSegment segmentDate={segment.date}
                                         entries={segment.entries}

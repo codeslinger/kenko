@@ -11,12 +11,10 @@ const iconForConsumptionType = {
 class JournalEntry extends Component {
   buildDataForEntry(entry, recipes) {
     const recipe = recipes[entry.recipeKey];
+    const units = pluralize(recipe.units.label, recipe.units.servingUnits * entry.servings, true);
+    const kcal = calculateKcal(recipe, entry.servings);
 
-    return {
-      recipe: recipe,
-      units: pluralize(recipe.units.label, recipe.units.servingUnits * entry.servings, true),
-      kcal: calculateKcal(recipe, entry.servings),
-    };
+    return {recipe: recipe, units: units, kcal: kcal};
   }
 
   render() {
