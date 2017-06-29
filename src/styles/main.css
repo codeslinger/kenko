@@ -1,0 +1,71 @@
+html {
+  font-family: 'Avenir Next', 'Lato', sans-serif;
+}
+body {
+  background-color: #f0f0f0;
+}
+.topnav nav ul a {
+  color: #607d8b;
+  text-transform: uppercase;
+}
+.topnav nav .brand-logo {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  padding: 0 1.2rem 0 1.2rem;
+  position: relative;
+}
+@media only screen and (max-width: 992px) {
+  .topnav nav .brand-logo {
+    position: absolute;
+  }
+}
+.journal-entry-title {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.journal-actions {
+  padding: 1rem;
+  margin-top: 1rem;
+}
+.journal-actions a {
+  margin: 0 0.3rem 0 0;
+}
+.journal-segment-header {
+  font-size: 1.64rem;
+  line-height: 110%;
+  margin: 1rem 0 1rem 0;
+}
+.journal-entry {
+  display: -webkit-flex;
+  display: flex;
+  min-height: 87px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.journal-entry:hover {
+  background-color: #f0f0f0;
+}
+.journal-entry .left-bookend {
+  width: 7%;
+  min-width: 70px;
+  text-align: center;
+  align-self: center;
+}
+.journal-entry .middle {
+  width: 83%;
+  align-self: center;
+}
+.journal-entry .right-bookend {
+  width: 10%;
+  text-align: center;
+  align-self: center;
+  margin-right: 10px;
+}
+.journal-entry .right-bookend:hover {
+  color: #2196f3;
+  background-color: #e0e0e0;
+}
+
+.pagination-area {
+  margin-top: 1rem;
+}

@@ -7,7 +7,6 @@ function configureStoreProd(initialState) {
   const middlewares = [
     thunk,
   ];
-
   return createStore(rootReducer, initialState, compose(applyMiddleware(...middlewares)));
 }
 
