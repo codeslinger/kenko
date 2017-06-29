@@ -20,6 +20,19 @@ body {
     position: absolute;
   }
 }
+.journal-area {
+  width: 83.3333333333%;
+  margin-left: auto;
+  left: auto;
+  right: auto;
+  margin-left: 8.3333333333%;
+}
+@media only screen and (max-width: 767px) {
+  .journal-area {
+    width: 95%;
+    margin-left: 3%;
+  }
+}
 .journal-entry-title {
   font-weight: bold;
   text-transform: uppercase;

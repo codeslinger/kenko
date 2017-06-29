@@ -26,7 +26,7 @@ class Journal extends Component {
 
     return (
       <div className="row">
-        <div className="col s10 offset-s1 journal-area">
+        <div className="journal-area">
           <JournalActions />
           {segments.map((segment, i) =>
                         <JournalSegment segmentDate={segment.date}
