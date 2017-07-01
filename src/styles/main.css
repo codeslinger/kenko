@@ -12,7 +12,55 @@ body {
 .topbar.ui.menu .item {
   text-transform: uppercase;
 }
+.right-floated {
+  float: right;
+}
 
+@media only screen and (max-width: 767px) {
+  .macro-summary {
+    display: none !important;
+  }
+}
+
+.journal-list {
+  margin: 1rem 0rem;
+}
+.journal-list:first-child {
+  margin-top: 0rem !important;
+}
+.journal-list:last-child {
+  margin-bottom: 0rem !important;
+}
+.journal-list .entry {
+  display: -webkit-flex;
+  display: flex;
+  margin: 1rem 0rem;
+  background: transparent;
+  border: none;
+  border-radius: 0rem;
+  width: 100%;
+}
+.journal-list .entry .icon-label {
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1.6rem;
+  width: 8%;
+  min-width: 32px;
+}
+.journal-list .entry .content {
+  width: 75%;
+  color: rgba(0, 0, 0, 0.6);
+}
+.journal-list .entry .content a.header {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 1);
+}
+.journal-list .entry .extra {
+  color: rgba(0, 0, 0, 0.6);
+  width: 17%;
+  text-align: right;
+}
 
 /* --- OLD --- */
 .topnav nav ul a {

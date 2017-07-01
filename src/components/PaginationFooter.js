@@ -1,12 +1,22 @@
 import React, {Component} from 'react';
+import {Container, Divider, Grid, Icon} from 'semantic-ui-react';
 
 class PaginationFooter extends Component {
   render() {
     return (
-      <div className="pagination-area center">
-        <a href="#!"><i className="material-icons left small blue-grey-text">chevron_left</i></a>
-        <a href="#!"><i className="material-icons right small blue-grey-text">chevron_right</i></a>
-      </div>
+      <Container>
+        <Divider />
+        <Grid columns={2}>
+          <Grid.Row>
+            <Grid.Column>
+              <Icon link name="chevron left" />
+            </Grid.Column>
+            <Grid.Column textAlign="right">
+              <Icon link name="chevron right" />
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Container>
     );
   }
 }

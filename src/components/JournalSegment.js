@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Container, Segment} from 'semantic-ui-react';
+import {Header, Container, Segment, Divider} from 'semantic-ui-react';
 import JournalSegmentSummary from './JournalSegmentSummary';
 import JournalEntry from './JournalEntry';
 
@@ -16,12 +16,17 @@ export default class JournalSegment extends Component {
 
     return (
       <Container>
-        <JournalSegmentSummary segmentDate={segmentDate} entries={entries} recipes={recipes} />
-        <Segment>
-          {entries.map((entry, i) =>
-                       <JournalEntry key={i}
-                                     entry={entry}
-                                     recipes={recipes} />)}
+        <Divider />
+        <Header as="h2">
+          {segmentDate.toDateString()}
+        </Header>
+        <Segment basic>
+          <JournalSegmentSummary entries={entries} recipes={recipes} />
+          <div className="journal-list">
+            {entries.map(
+              (entry, i) =>
+                <JournalEntry key={i} entry={entry} recipes={recipes} />)}
+          </div>
         </Segment>
       </Container>
     );

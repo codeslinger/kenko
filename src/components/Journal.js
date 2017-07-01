@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import JournalActions from './JournalActions';
 import JournalSegment from './JournalSegment';
 import PaginationFooter from './PaginationFooter';
+import {Container} from 'semantic-ui-react';
 
 import mockData from '../mockData';
 
@@ -25,17 +26,15 @@ class Journal extends Component {
     const segments = this.groupSegmentsByDate(mockData.journalEntries);
 
     return (
-      <div className="row">
-        <div className="journal-area">
-          <JournalActions recipes={recipes} />
-          {segments.map((segment, i) =>
-                        <JournalSegment segmentDate={segment.date}
-                                        entries={segment.entries}
-                                        key={i}
-                                        recipes={recipes} />)}
-          <PaginationFooter />
-        </div>
-      </div>
+      <Container text>
+        <JournalActions recipes={recipes} />
+        {segments.map((segment, i) =>
+                      <JournalSegment segmentDate={segment.date}
+                                      entries={segment.entries}
+                                      key={i}
+                                      recipes={recipes} />)}
+        <PaginationFooter />
+      </Container>
     );
   }
 }
