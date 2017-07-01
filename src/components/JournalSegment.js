@@ -4,6 +4,12 @@ import JournalSegmentSummary from './JournalSegmentSummary';
 import JournalEntry from './JournalEntry';
 
 class JournalSegment extends Component {
+  static propTypes = {
+    segmentDate: PropTypes.object.isRequired,
+    entries: PropTypes.array.isRequired,
+    recipes: PropTypes.object.isRequired,
+  };
+
   render() {
     const {segmentDate, entries, recipes} = this.props;
 
@@ -19,10 +25,5 @@ class JournalSegment extends Component {
   }
 }
 
-JournalSegment.propTypes = {
-  segmentDate: PropTypes.object.isRequired,
-  entries: PropTypes.array.isRequired,
-  recipes: PropTypes.object.isRequired,
-};
 
 export default JournalSegment;

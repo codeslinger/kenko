@@ -27,7 +27,7 @@ class Journal extends Component {
     return (
       <div className="row">
         <div className="journal-area">
-          <JournalActions />
+          <JournalActions recipes={recipes} />
           {segments.map((segment, i) =>
                         <JournalSegment segmentDate={segment.date}
                                         entries={segment.entries}

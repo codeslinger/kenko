@@ -1,10 +1,15 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import {Provider} from 'react-redux';
-import routes from '../routes';
 import {Router} from 'react-router';
+import routes from '../routes';
+import PropTypes from 'prop-types';
 
 class Root extends Component {
+  static propTypes = {
+    store: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired
+  };
+
   render() {
     const {store, history} = this.props;
 
@@ -15,10 +20,5 @@ class Root extends Component {
     );
   }
 }
-
-Root.propTypes = {
-  store: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired
-};
 
 export default Root;

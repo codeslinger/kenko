@@ -7,9 +7,6 @@ import Root from './components/Root';
 import configureStore from './store/configureStore';
 import {syncHistoryWithStore} from 'react-router-redux';
 
-//require('favicon.ico');
-//import './styles/styles.css';
-
 const store = configureStore();
 const history = syncHistoryWithStore(browserHistory, store);
 
