@@ -1,8 +1,15 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {calculateKcal} from '../util/calc';
+import {Container, Segment, Header} from 'semantic-ui-react';
 
-class JournalSegmentSummary extends Component {
+export default class JournalSegmentSummary extends Component {
+  static propTypes = {
+    segmentDate: PropTypes.object.isRequired,
+    entries: PropTypes.array.isRequired,
+    recipes: PropTypes.object.isRequired,
+  };
+
   calculateMacros(recipe, servings) {
     return {
       fat: recipe.nutrition.fat * servings,
@@ -36,28 +43,18 @@ class JournalSegmentSummary extends Component {
     const macroSummary = this.calculateMacroSummary(entries, recipes);
 
     return (
-      <div className="journal-segment">
-        <div className="header">
+      <Container>
+        <Header as="h2">
           {segmentDate.toDateString()}
-        </div>
-        <div className="macro-summary z-depth-1 blue-grey white-text">
-          <span className="label">Macros</span>
+        </Header>
+        <Segment inverted color="blue">
           <span className="macro">{macroSummary.fat.toFixed(1)}g Fat</span>
           <span className="macro">{macroSummary.protein.toFixed(1)}g Protein</span>
           <span className="macro">{macroSummary.netCarbs.toFixed(1)}g Net Carbs</span>
           <span className="macro">{macroSummary.fiber.toFixed(1)}g Fiber</span>
           <span className="macro">{Math.round(macroSummary.kcal)} Kcal</span>
-        </div>
-      </div>
+        </Segment>
+      </Container>
     );
   }
 }
-
-JournalSegmentSummary.propTypes = {
-  segmentDate: PropTypes.object.isRequired,
-  entries: PropTypes.array.isRequired,
-  recipes: PropTypes.object.isRequired,
-};
-
-export default JournalSegmentSummary;
-

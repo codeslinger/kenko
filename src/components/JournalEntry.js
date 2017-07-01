@@ -8,7 +8,12 @@ const iconForConsumptionType = {
   "food": {name: "restaurant", color: "blue-text"},
 };
 
-class JournalEntry extends Component {
+export default class JournalEntry extends Component {
+  static propTypes = {
+    entry: PropTypes.object.isRequired,
+    recipes: PropTypes.object.isRequired,
+  };
+
   buildDataForEntry(entry, recipes) {
     const recipe = recipes[entry.recipeKey];
     const units = pluralize(recipe.units.label, recipe.units.servingUnits * entry.servings, true);
@@ -43,10 +48,3 @@ class JournalEntry extends Component {
     );
   }
 }
-
-JournalEntry.propTypes = {
-  entry: PropTypes.object.isRequired,
-  recipes: PropTypes.object.isRequired,
-};
-
-export default JournalEntry;
