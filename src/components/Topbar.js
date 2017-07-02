@@ -9,19 +9,21 @@ class Topbar extends Component {
           <Menu.Item header>
             Kenk&#333;
           </Menu.Item>
-          <Dropdown item text="Go To">
-            <Dropdown.Menu>
-              <Dropdown.Item text="Journal" icon="list layout" />
-              <Dropdown.Item text="Recipes" icon="book" />
-              <Dropdown.Item text="Reports" icon="bar chart" />
-              <Dropdown.Divider />
+          <Menu.Menu position="right">
+            <Dropdown item text="Go To">
+              <Dropdown.Menu>
+                <Dropdown.Item text="Journal" icon="list layout" />
+                <Dropdown.Item text="Recipes" icon="book" />
+                <Dropdown.Item text="Reports" icon="bar chart" />
+                <Dropdown.Divider />
 
-              <Dropdown.Item icon="user" text="Your Profile" />
-              <Dropdown.Item icon="setting" text="Your Settings" />
-              <Dropdown.Divider />
-              <Dropdown.Item icon="sign out" text="Logout" />
-            </Dropdown.Menu>
-          </Dropdown>
+                <Dropdown.Item icon="user" text="Your Profile" />
+                <Dropdown.Item icon="setting" text="Your Settings" />
+                <Dropdown.Divider />
+                <Dropdown.Item icon="sign out" text="Logout" />
+              </Dropdown.Menu>
+            </Dropdown>
+          </Menu.Menu>
         </Container>
       </Menu>
     );

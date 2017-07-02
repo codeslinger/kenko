@@ -36,6 +36,7 @@ export default class JournalEntry extends Component {
         <div className="content">
           <a href="#" className="header">{data.recipe.label}</a>
           <br/>
+          <Icon name="chevron down" />
           <span>{data.units} {data.unitLabel}</span>
         </div>
         <div className="extra">

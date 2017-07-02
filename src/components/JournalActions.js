@@ -1,6 +1,16 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import {
+  Button,
+  Container,
+  Form,
+  Grid,
+  Icon,
+  Input,
+  Segment,
+  Select,
+} from 'semantic-ui-react';
 
 class JournalActions extends Component {
   static propTypes = {
@@ -44,63 +54,52 @@ class JournalActions extends Component {
   };
 
   renderActions() {
-    let actionClassNames = classnames("journal-actions center", {
+    let actionClassNames = classnames("journal-actions", {
       "not-visible": this.state.addEntryActive || this.state.addRecipeActive,
     });
 
     return (
-      <div className={actionClassNames}>
-        <a className="btn blue-grey" onClick={this.openAddEntry}>+ Entry</a>
-        <a className="btn blue-grey" onClick={this.openAddRecipe}>+ Recipe</a>
-      </div>
+      <Container className={actionClassNames}>
+        <Button onClick={this.openAddEntry}>New Entry</Button>
+        <Button onClick={this.openAddRecipe}>New Recipe</Button>
+      </Container>
     );
   }
 
   renderAddEntryForm(recipes) {
-    const addEntryClassNames = classnames("journal-add-entry z-depth-2", {
+    const addEntryClassNames = classnames({
       "not-visible": !this.state.addEntryActive,
     });
-    //const defaultAppliesTo = new Date();
-    const defaultAppliesTo = "";
-    const recipeKeys = Object.keys(recipes).map((key) => [key, recipes[key].label]);
+    const recipeOptions = Object.keys(recipes).map(
+      (key, i) =>
+        { return {key: i, text: recipes[key].label, value: key}; }
+    );
+    const unitOptions = [
+      {key: 1, text: "g", value: "g"},
+      {key: 2, text: "cup", value: "cup"},
+      {key: 3, text: "oz", value: "oz"}
+    ];
+    const now = new Date();
 
     return (
-      <div className={addEntryClassNames}>
-        <div className="form-header">
-          <a href="#" className="close-btn grey-text" onClick={this.closeAddEntry}>
-            <i className="material-icons">close</i>
-          </a>
-          <span className="title blue-grey-text">Add a Journal Entry</span>
-        </div>
-        <div className="form-body">
-          <form>
-            <div className="row">
-              <label htmlFor="what">What?</label>
-              <div className="input-field col s8">
-                <select id="what">
-                  <option value="" disabled selected>Choose recipe</option>
-                  {recipeKeys.map((v) => <option value={v[0]}>{v[1]}</option>)}
-                </select>
-              </div>
-            </div>
-            <div className="row">
-              <div className="input-field col s4">
-                <input placeholder="" id="when" type="text" value={defaultAppliesTo} />
-                <label htmlFor="appliesTo">When?</label>
-              </div>
-              <div className="input-field col s2">
-                <input placeholder="" id="amount" type="text" />
-                <label htmlFor="servings">Amount</label>
-              </div>
-              <div className="input-field col s2">
-                <select id="units">
-                  <option value="units">units</option>
-                </select>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
+      <Segment className={addEntryClassNames}>
+        <Grid>
+          <Grid.Row>
+            <Grid.Column textAlign="right" verticalAlign="top">
+              <Icon link name="close" size="large" onClick={this.closeAddEntry} />
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+        <Form>
+          <Form.Field control={Select} label="What?" options={recipeOptions} placeholder="Choose a recipe" />
+          <Form.Field control={Input} label="When?" placeholder={now.toDateString()} />
+          <Form.Group widths="equal">
+            <Form.Field control={Input} label="How much?" />
+            <Form.Field control={Select} options={unitOptions} label="Units" />
+          </Form.Group>
+          <Form.Field control={Button}>Add Entry</Form.Field>
+        </Form>
+      </Segment>
     );
   }
 
