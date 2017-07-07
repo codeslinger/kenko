@@ -4,7 +4,7 @@ import {Router} from 'react-router';
 import routes from '../routes';
 import PropTypes from 'prop-types';
 
-class Root extends Component {
+export default class Root extends Component {
   static propTypes = {
     store: PropTypes.object.isRequired,
     history: PropTypes.object.isRequired
@@ -20,5 +20,3 @@ class Root extends Component {
     );
   }
 }
-
-export default Root;

@@ -2,7 +2,11 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Topbar from './Topbar';
 
-class App extends Component {
+export default class App extends Component {
+  static propTypes = {
+    children: PropTypes.element
+  };
+
   render() {
     return (
       <div>
@@ -12,9 +16,3 @@ class App extends Component {
     );
   }
 }
-
-App.propTypes = {
-  children: PropTypes.element
-};
-
-export default App;
