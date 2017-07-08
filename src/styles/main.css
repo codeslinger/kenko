@@ -88,6 +88,10 @@ body {
 .not-visible {
   display: none !important;
 }
+.journal-pagination-header {
+  margin: 2rem 0 1rem 0;
+}
+
 /* --- OLD --- */
 /*
 .topnav nav ul a {

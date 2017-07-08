@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 const mockData = {
   recipes: {
     1: {
@@ -100,18 +102,18 @@ const mockData = {
     },
   },
   journalEntries: [
-    {appliesTo: new Date(2017, 5, 27), consumption: {recipeKey: 1, servings: 1}},
-    {appliesTo: new Date(2017, 5, 27), consumption: {recipeKey: 2, servings: 1}},
-    {appliesTo: new Date(2017, 5, 27), consumption: {recipeKey: 6, servings: 4}},
-    {appliesTo: new Date(2017, 5, 27), consumption: {recipeKey: 5, servings: 1}},
-    {appliesTo: new Date(2017, 5, 27), consumption: {recipeKey: 3, servings: 1}},
+    {appliesTo: moment("2017-06-27"), consumption: {recipeKey: 1, servings: 1}},
+    {appliesTo: moment("2017-06-27"), consumption: {recipeKey: 2, servings: 1}},
+    {appliesTo: moment("2017-06-27"), consumption: {recipeKey: 6, servings: 4}},
+    {appliesTo: moment("2017-06-27"), consumption: {recipeKey: 5, servings: 1}},
+    {appliesTo: moment("2017-06-27"), consumption: {recipeKey: 3, servings: 1}},
 
-    {appliesTo: new Date(2017, 5, 28), consumption: {recipeKey: 1, servings: 1}},
-    {appliesTo: new Date(2017, 5, 28), consumption: {recipeKey: 2, servings: 1}},
-    {appliesTo: new Date(2017, 5, 28), consumption: {recipeKey: 7, servings: 1}},
-    {appliesTo: new Date(2017, 5, 28), consumption: {recipeKey: 3, servings: 1}},
-    {appliesTo: new Date(2017, 5, 28), consumption: {recipeKey: 4, servings: 2}},
-    {appliesTo: new Date(2017, 5, 28), consumption: {recipeKey: 7, servings: 2}},
+    {appliesTo: moment("2017-06-28"), consumption: {recipeKey: 1, servings: 1}},
+    {appliesTo: moment("2017-06-28"), consumption: {recipeKey: 2, servings: 1}},
+    {appliesTo: moment("2017-06-28"), consumption: {recipeKey: 7, servings: 1}},
+    {appliesTo: moment("2017-06-28"), consumption: {recipeKey: 3, servings: 1}},
+    {appliesTo: moment("2017-06-28"), consumption: {recipeKey: 4, servings: 2}},
+    {appliesTo: moment("2017-06-28"), consumption: {recipeKey: 7, servings: 2}},
   ],
 };
 

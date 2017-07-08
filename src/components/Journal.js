@@ -1,42 +1,37 @@
 import React, {Component} from 'react';
+import {
+  Container,
+} from 'semantic-ui-react';
+import moment from 'moment';
 import JournalActions from './JournalActions';
 import JournalSegment from './JournalSegment';
-import PaginationFooter from './PaginationFooter';
-import {Container} from 'semantic-ui-react';
+import JournalHeader from './JournalHeader';
+import {getSegmentsForDate} from '../util/calc';
 
 import mockData from '../mockData';
 
-class Journal extends Component {
-  groupSegmentsByDate(data) {
-    let rv = {};
-    for (let item of data) {
-      if (!("appliesTo" in item)) {
-        continue;
-      }
-      let key = item.appliesTo.getTime();
-      rv[key] = rv[key] || {date: item.appliesTo, entries: []};
-      rv[key].entries.push(item.consumption);
-    }
-    // return entries grouped by date in descending order (latest date first)
-    return Object.keys(rv).sort().reverse().map((key) => rv[key]);
-  }
+export default class Journal extends Component {
+  state = {
+    date: moment("2017-06-28"),
+  };
+
+  onDateChange = (date) => {
+    console.log("onDateChange called");
+    this.setState({date: date});
+  };
 
   render() {
+    const date = this.state.date;
     const recipes = mockData.recipes;
-    const segments = this.groupSegmentsByDate(mockData.journalEntries);
+    const segment = getSegmentsForDate(date, mockData.journalEntries);
+    const entries = (segment) ? segment.entries : [];
 
     return (
       <Container text>
-        <JournalActions recipes={recipes} />
-        {segments.map((segment, i) =>
-                      <JournalSegment segmentDate={segment.date}
-                                      entries={segment.entries}
-                                      key={i}
-                                      recipes={recipes} />)}
-        <PaginationFooter />
+        <JournalHeader date={date} onDateChange={this.onDateChange} />
+        <JournalActions recipes={recipes} date={date} />
+        <JournalSegment date={date} entries={entries} recipes={recipes} />
       </Container>
     );
   }
 }
-
-export default Journal;

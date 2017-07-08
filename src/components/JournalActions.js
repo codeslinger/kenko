@@ -6,6 +6,7 @@ import AddEntryForm from './AddEntryForm';
 
 export default class JournalActions extends Component {
   static propTypes = {
+    date: PropTypes.object.isRequired,
     recipes: PropTypes.object.isRequired,
   };
 
@@ -37,8 +38,8 @@ export default class JournalActions extends Component {
     });
 
     return (
-      <Container className={actionClassNames}>
-        <Button onClick={this.openAddEntry}>New Entry</Button>
+      <Container className={actionClassNames} textAlign="center">
+        <Button onClick={this.openAddEntry}>Add Entry</Button>
       </Container>
     );
   }
