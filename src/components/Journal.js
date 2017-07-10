@@ -16,7 +16,6 @@ export default class Journal extends Component {
   };
 
   onDateChange = (date) => {
-    console.log("onDateChange called");
     this.setState({date: date});
   };
 
@@ -30,7 +29,7 @@ export default class Journal extends Component {
       <Container text>
         <JournalHeader date={date} onDateChange={this.onDateChange} />
         <JournalActions recipes={recipes} date={date} />
-        <JournalSegment date={date} entries={entries} recipes={recipes} />
+        <JournalSegment date={date} goals={mockData.goals} entries={entries} recipes={recipes} />
       </Container>
     );
   }

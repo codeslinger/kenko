@@ -86,24 +86,24 @@ export default class AddEntryForm extends Component {
           </Grid.Row>
         </Grid>
         <Form onSubmit={this.handleSubmit}>
-          <Form.Group widths='equal'>
+          <Form.Group widths="equal">
             <Form.Select label="Search"
                          name="what"
                          value={what}
                          search
                          scrolling
-                         noResultsMessage='No results found. Try another search.'
-                         placeholder='Search foods'
+                         noResultsMessage="No results found. Try another search."
+                         placeholder="Search foods"
                          options={recipeOptions}
                          onChange={this.handleWhatChange} />
           </Form.Group>
           {unitsVisible &&
-            <Form.Group widths='equal'>
+            <Form.Group widths="equal">
               <Form.Input label="How much?"
                           name="amount"
                           value={amount}
                           onChange={this.handleChange} />
-              <Form.Select label='&nbsp;'
+              <Form.Select label="&nbsp;"
                            name="units"
                            value={unitValue}
                            options={unitOptions}

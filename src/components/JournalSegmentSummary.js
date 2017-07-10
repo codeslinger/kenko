@@ -1,10 +1,14 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import {
+  Segment,
+} from 'semantic-ui-react';
 import {calculateKcal} from '../util/calc';
-import {Message, Grid, Icon} from 'semantic-ui-react';
+import MacroProgressBar from './MacroProgressBar';
 
 export default class JournalSegmentSummary extends Component {
   static propTypes = {
+    goals: PropTypes.object.isRequired,
     entries: PropTypes.array.isRequired,
     recipes: PropTypes.object.isRequired,
   };
@@ -38,24 +42,17 @@ export default class JournalSegmentSummary extends Component {
   }
 
   render() {
-    const {entries, recipes} = this.props;
-    const macroSummary = this.calculateMacroSummary(entries, recipes);
+    const {goals, entries, recipes} = this.props;
+    const summary = this.calculateMacroSummary(entries, recipes);
 
     return (
-      <Message icon className="macro-summary">
-        <Icon name="bar chart" />
-        <Message.Content>
-          <Grid columns={5} textAlign="center" divided stackable>
-            <Grid.Row>
-              <Grid.Column>{macroSummary.fat.toFixed(1)}g Fat</Grid.Column>
-              <Grid.Column>{macroSummary.protein.toFixed(1)}g Protein</Grid.Column>
-              <Grid.Column>{macroSummary.netCarbs.toFixed(1)}g Carbs</Grid.Column>
-              <Grid.Column>{macroSummary.fiber.toFixed(1)}g Fiber</Grid.Column>
-              <Grid.Column>{Math.round(macroSummary.kcal)} Kcal</Grid.Column>
-            </Grid.Row>
-          </Grid>
-        </Message.Content>
-      </Message>
+      <Segment>
+        <MacroProgressBar value={summary.kcal} target={goals.kcal} label="Energy" units="kcal" />
+        <MacroProgressBar value={summary.fat} target={goals.fat} label="Fat" units="g" />
+        <MacroProgressBar value={summary.protein} target={goals.protein} label="Protein" units="g" />
+        <MacroProgressBar value={summary.netCarbs} target={goals.netCarbs} label="Net Carbs" units="g" />
+        <MacroProgressBar value={summary.fiber} target={goals.fiber} label="Fiber" units="g" />
+      </Segment>
     );
   }
 }

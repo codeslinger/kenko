@@ -11,12 +11,13 @@ import JournalEntry from './JournalEntry';
 
 export default class JournalSegment extends Component {
   static propTypes = {
+    goals: PropTypes.object.isRequired,
     entries: PropTypes.array.isRequired,
     recipes: PropTypes.object.isRequired,
   };
 
   render() {
-    const {entries, recipes} = this.props;
+    const {goals, entries, recipes} = this.props;
     let renderedEntries = (
       <Message icon>
         <Icon name="attention" />
@@ -27,16 +28,20 @@ export default class JournalSegment extends Component {
       </Message>
     );
     if (entries.length > 0) {
-      renderedEntries = entries.map((entry, i) => <JournalEntry key={i} entry={entry} recipes={recipes} />);
+      renderedEntries = entries.map(
+        (entry, i) =>
+          <JournalEntry key={i} entry={entry} recipes={recipes} />
+      );
     }
 
     return (
       <Container>
         <Segment basic>
-          {entries.length > 0 && <JournalSegmentSummary entries={entries} recipes={recipes} />}
           <div className="journal-list">
             {renderedEntries}
           </div>
+          {entries.length > 0 &&
+            <JournalSegmentSummary goals={goals} entries={entries} recipes={recipes} />}
         </Segment>
       </Container>
     );

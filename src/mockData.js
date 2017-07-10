@@ -115,6 +115,13 @@ const mockData = {
     {appliesTo: moment("2017-06-28"), consumption: {recipeKey: 4, servings: 2}},
     {appliesTo: moment("2017-06-28"), consumption: {recipeKey: 7, servings: 2}},
   ],
+  goals: {
+    fat: {value: 141, disposition: "closeness"},
+    protein: {value: 93, disposition: "closeness"},
+    netCarbs: {value: 25, disposition: "stayUnder"},
+    fiber: {value: 20, disposition: "stayOver"},
+    kcal: {value: 1743, disposition: "closeness"},
+  },
 };
 
 export default mockData;

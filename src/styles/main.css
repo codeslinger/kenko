@@ -16,23 +16,9 @@ body {
   float: right;
 }
 
-@media only screen and (max-width: 767px) {
-  .macro-summary {
-    display: none !important;
-  }
-}
-
 .journal-list {
   margin: 1rem 0rem;
 }
-/*
-.journal-list:first-child {
-  margin-top: 0rem !important;
-}
-.journal-list:last-child {
-  margin-bottom: 0rem !important;
-}
-*/
 .journal-list .entry:first-child {
   border-top: 1px solid #e0e0e0;
   border-radius: 0.35rem 0.35rem 0 0;
@@ -92,131 +78,42 @@ body {
   margin: 2rem 0 1rem 0;
 }
 
-/* --- OLD --- */
-/*
-.topnav nav ul a {
-  color: #607d8b;
-  text-transform: uppercase;
-}
-.topnav nav .brand-logo {
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 1.6rem;
-  padding: 0 1.2rem 0 1.2rem;
+.pbar {
   position: relative;
-}
-@media only screen and (max-width: 992px) {
-  .topnav nav .brand-logo {
-    position: absolute;
-  }
-}
-.journal-area {
-  width: 83.3333333333%;
-  margin-left: auto;
-  left: auto;
-  right: auto;
-  margin-left: 8.3333333333%;
-}
-@media only screen and (max-width: 767px) {
-  .journal-area {
-    width: 95%;
-    margin-left: 3%;
-  }
-}
-.journal-entry-title {
+  display: block;
+  max-width: 100%;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: white;
+  border-radius: 0.2rem;
+  font-size: 0.87rem;
   font-weight: bold;
-  text-transform: uppercase;
+  user-select: none;
+  margin: 0.25rem 0 0.25rem 0;
 }
-
-.not-visible {
-  display: none;
+.pbar:first-child {
+  margin: 0 0 0.25rem 0;
 }
-
-.journal-actions {
-  padding: 1rem;
-  margin-top: 1rem;
+.pbar:last-child {
+  margin: 0.25rem 0 0 0;
 }
-.journal-actions a {
-  margin: 0 0.3rem 0 0;
+.pbar .bar {
+  display: block;
+  line-height: 1;
+  position: relative;
+  border-radius: 0.2rem;
+  height: 1.75rem;
 }
-.journal-add-entry {
-  margin-top: 1rem;
-  background-color: white;
+.pbar .bar.green { background: #6dd58b; }
+.pbar .bar.yellow { background: #f9ce6a; }
+.pbar .bar.red { background: #ee7f74; }
+.pbar .bar.blue { background: #6eb4e2; }
+.pbar .label {
+  position: absolute;
+  top: 0.2rem;
+  left: 1rem;
+  color: white;
 }
-.journal-add-entry .form-header {
-  border-bottom: 1px solid #bdbdbd;
-  padding: 1.2rem;
-}
-.journal-add-entry .form-header .title {
-  text-transform: uppercase;
-  font-weight: bold;
-}
-
-.journal-add-recipe {
-  background-color: white;
-}
-
-.close-btn {
-  float: right;
-}
-
-.journal-segment .header {
-  font-size: 1.64rem;
-  line-height: 110%;
-  margin: 1.5rem 0 1rem 0;
-}
-.journal-segment .macro-summary {
-  display: -webkit-flex;
-  display: flex;
-  padding: 1rem 1.2rem 1rem 1.2rem;
-  justify-content: space-between;
-}
-@media only screen and (max-width: 767px) {
-  .journal-segment .macro-summary {
-    flex-wrap: wrap;
-    align-items: center;
-    font-size: 0.8rem;
-  }
-  .journal-segment .macro-summary .label, .journal-segment .macro-summary .macro {
-    width: 50%;
-    text-align: center;
-  }
-}
-.journal-segment .macro-summary .label {
-  font-weight: bold;
-  text-transform: uppercase;
-}
-.journal-entry {
-  display: -webkit-flex;
-  display: flex;
-  min-height: 87px;
-  border-bottom: 1px solid #e0e0e0;
-}
-.journal-entry:hover {
-  background-color: #f0f0f0;
-}
-.journal-entry .left-bookend {
-  width: 7%;
-  min-width: 70px;
-  text-align: center;
-  align-self: center;
-}
-.journal-entry .middle {
-  width: 78%;
-  align-self: center;
-}
-.journal-entry .right-bookend {
-  width: 15%;
-  text-align: center;
-  align-self: center;
-  margin-right: 10px;
-}
-.journal-entry .right-bookend:hover {
-  color: #2196f3;
-  background-color: #e0e0e0;
-}
-
-.pagination-area {
-  margin-top: 1rem;
-}
-*/
+.pbar .label.green { color: #285d52; }
+.pbar .label.yellow { color: #be7b01; }
+.pbar .label.red { color: #90443c; }
+.pbar .label.blue { color: #17537e; }
